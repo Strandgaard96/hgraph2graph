@@ -21,7 +21,7 @@ parser.add_argument('--atom_vocab', default=common_atom_vocab)
 parser.add_argument('--model', required=True)
 
 parser.add_argument('--seed', type=int, default=7)
-parser.add_argument('--nsample', type=int, default=10000)
+parser.add_argument('--nsamples', type=int, default=10000)
 
 parser.add_argument('--rnn_type', type=str, default='LSTM')
 parser.add_argument('--hidden_size', type=int, default=250)
