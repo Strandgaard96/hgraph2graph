@@ -25,10 +25,10 @@ parser.add_argument('--load_model', default=None)
 parser.add_argument('--seed', type=int, default=7)
 
 parser.add_argument('--rnn_type', type=str, default='LSTM')
-parser.add_argument('--hidden_size', type=int, default=250)
-parser.add_argument('--embed_size', type=int, default=250)
-parser.add_argument('--batch_size', type=int, default=50)
-parser.add_argument('--latent_size', type=int, default=32)
+parser.add_argument('--hidden_size', type=int, default=50)
+parser.add_argument('--embed_size', type=int, default=50)
+parser.add_argument('--batch_size', type=int, default=5)
+parser.add_argument('--latent_size', type=int, default=16)
 parser.add_argument('--depthT', type=int, default=15)
 parser.add_argument('--depthG', type=int, default=15)
 parser.add_argument('--diterT', type=int, default=1)
@@ -93,7 +93,7 @@ for epoch in range(args.epoch):
         nn.utils.clip_grad_norm_(model.parameters(), args.clip_norm)
         optimizer.step()
 
-        meters = meters + np.array([kl_div, loss.item(), wacc * 100, iacc * 100, tacc * 100, sacc * 100])
+        meters = meters + np.array([kl_div, loss.item(), wacc.cpu() * 100, iacc.cpu() * 100, tacc.cpu() * 100, sacc.cpu() * 100])
 
         if total_step % args.print_iter == 0:
             meters /= args.print_iter
