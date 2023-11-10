@@ -9,7 +9,7 @@ add = lambda x,y : x + y if type(x) is int else (x[0] + y, x[1] + y)
 
 class MolGraph(object):
 
-    BOND_LIST = [Chem.rdchem.BondType.SINGLE, Chem.rdchem.BondType.DOUBLE, Chem.rdchem.BondType.TRIPLE, Chem.rdchem.BondType.AROMATIC] 
+    BOND_LIST = [Chem.rdchem.BondType.SINGLE, Chem.rdchem.BondType.DOUBLE, Chem.rdchem.BondType.TRIPLE, Chem.rdchem.BondType.AROMATIC, Chem.rdchem.BondType.DATIVE]
     MAX_POS = 20
 
     def __init__(self, smiles):
